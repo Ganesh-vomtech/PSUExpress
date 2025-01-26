@@ -1,0 +1,868 @@
+@font-face {
+  font-family: 'rubiklight';
+  src: url('../fonts/rubik-light-webfont.woff2') format('woff2'), url('../fonts/rubik-light-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'rubikmedium';
+  src: url('../fonts/rubik-medium-webfont.woff2') format('woff2'), url('../fonts/rubik-medium-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'amaranthregular';
+  src: url('../fonts/amaranth-regular-webfont.woff2') format('woff2'), url('../fonts/amaranth-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: rubiklight, Arial, Helvetica, sans-serif;
+  font-size: 15px;
+}
+
+img {
+  max-width: 100%;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+
+.clear {
+  clear: both;
+}
+
+header .top-panel {
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+}
+
+header .top-panel p {
+  margin: 0;
+  padding: 8px 0 0;
+  font-weight: 600;
+}
+
+header .top-panel a {
+  color: #444;
+}
+
+header .top-panel .social {
+  float: right;
+  margin-right: 10px;
+  font-size: 14px;
+  margin-top: 7px;
+}
+
+header .top-panel .social a {
+  color: #888;
+}
+
+header .top-panel .social a:hover {
+  color: #00552c;
+}
+
+header .top-panel .social i {
+  margin: 5px;
+}
+
+header .top-panel .makean {
+  float: right;
+  background: #00552c;
+  text-transform: uppercase;
+  font-family: 'rubikmedium';
+  color: #fff;
+  display: block;
+  padding: 10px 15px;
+  margin: 0 0 0 2px
+}
+
+header .top-panel .makean:hover {
+  background: #acc641;
+}
+
+header .logo {
+  padding: 5px 0;
+}
+
+header .iso {
+  float: right;
+  margin-top: 15px;
+}
+
+#menu {
+  border-bottom: 1px solid #eee;
+  border-top: 1px solid #eee;
+  position: relative;
+}
+
+.sildetab {
+  padding: 15px 0;
+}
+
+.sildetab .start {
+  margin-bottom: 10px;
+}
+
+.sildetab .start span.cate {
+  display: block;
+  font-size: 12px;
+}
+
+.sildetab .start .img-thumb {
+  overflow: hidden;
+  height: 250px;
+}
+
+.sildetab .start .img {
+  background-size: cover !important;
+  background-repeat: no-repeat;
+  background-position: center;
+  -moz-transition-duration: .5s;
+  -webkit-transition-duration: .5s;
+  -o-transition-duration: .5s;
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.sildetab .start .img:hover {
+  -moz-transform: scale(1.1);
+  -o-transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+}
+
+.sildetab .start .title {
+  font-size: 18px;
+  font-family: 'rubikmedium';
+  margin: 10px 0;
+}
+
+.sildetab .start .title h2 {
+  font-size: 18px;
+  font-family: 'rubikmedium';
+  margin: 10px 0;
+}
+
+.sildetab .start .title h3 {
+  font-size: 18px;
+  font-family: 'rubikmedium';
+  margin: 10px 0;
+}
+
+.start .title h3 {
+  font-size: 18px;
+  font-family: 'rubikmedium';
+  margin: 10px 0;
+}
+
+
+.sildetab .start .title a {
+  color: #000;
+}
+
+.sildetab .absolute {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, .5);
+  z-index: 999;
+  color: #fff;
+  padding: 20px 10px;
+  text-align: center;
+  display: table;
+}
+
+.sildetab .absolute .title a {
+  color: #fff;
+}
+
+.sildetab .owl-dots {
+  display: block !important;
+}
+
+.sectiontitle {
+  font-size: 22px;
+  font-family: 'rubikmedium';
+  font-weight: 200;
+  margin-bottom: 15px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #ddd;
+}
+
+.sectiontitle h2.titlepage {
+  float: left;
+  margin: 0;
+}
+
+.banner {
+  text-align: center;
+  margin: 10px 0
+}
+
+.absolute {
+  position: absolute;
+}
+
+.sectiontitle a.viewall {
+  float: right;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  color: #333;
+  display: inline-block;
+  padding: 5px 12px;
+  font-family: 'rubiklight';
+  background: #fff;
+}
+
+.sectiontitle a.viewall:hover {
+  background: #3e4095;
+  color: #fff;
+}
+
+.sectiontitle h2 {
+  font-size: 22px;
+  font-family: 'rubikmedium';
+  font-weight: 200;
+}
+
+.sectiontitle .title h3 {
+  font-size: 18px;
+  font-family: 'rubikmedium';
+  margin: 10px;
+  font-weight: 200
+}
+
+.bgfix {
+  padding: 30px 0;
+  background-size: cover;
+  background: no-repeat left;
+}
+
+.bgfix .start {
+  margin-bottom: 20px;
+  background: #fff;
+  overflow: hidden;
+}
+
+.bgfix figure {
+  height: 160px;
+  margin: 0;
+  overflow: hidden;
+  background-size: cover;
+  -moz-transition-duration: .5s;
+}
+
+.bgfix figure:hover {
+  -moz-transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  -o-transform: scale(1.1);
+}
+
+.bgfix .title {
+  font-size: 18px;
+  font-family: 'rubikmedium';
+  margin: 10px;
+  font-weight: 200
+}
+
+.bgfix .title a {
+  color: #000;
+}
+
+.bgfix .date {
+  font-size: 12px;
+  color: #999;
+  padding: 0px 10px;
+}
+
+.bgfix .left-content {
+  text-align: center;
+  padding-top: 120px;
+  color: #fff;
+}
+
+.bgfix .left-content .title {
+  font-size: 24px;
+}
+
+.bgfix .left-content .title a {
+  color: #fff;
+}
+
+.bgfix .left-content .date {
+  color: #fff;
+}
+
+.bgfix .sectiontitle {
+  background: rgba(255, 255, 255, .7);
+  padding: 10px;
+}
+
+.popular {
+  padding: 20px 0;
+  background: #f7f7f7;
+}
+
+.popular .start {
+  margin-bottom: 10px;
+  clear: both;
+  padding: 10px;
+  background: #fff;
+}
+
+.popular figure {
+  width: 70px;
+  height: 70px;
+  margin: 0 10px 0 0;
+  border-radius: 50%;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  float: left;
+}
+
+.popular figure:before {
+  background: rgba(0, 0, 0, .5);
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  left: 0;
+}
+
+.popular figure span {
+  position: relative;
+  z-index: 999;
+  color: #fff;
+  font-size: 24px;
+  font-family: 'rubikmedium';
+  display: block;
+  line-height: 65px;
+}
+
+.popular .title {
+  font-size: 16px;
+  font-family: 'rubikmedium';
+  margin: 10px 10px 0;
+  font-weight: 200
+}
+
+.popular .title a {
+  color: #000;
+}
+
+.popular .date {
+  font-size: 12px;
+  color: #999;
+  padding: 0px 10px;
+}
+
+.celebrity {
+  padding: 20px 0;
+}
+
+.celebrity .img {
+  height: 400px;
+}
+
+.celebrity .content {
+  height: 400px;
+  background: #f75454;
+  color: #fff;
+  padding: 70px 50px;
+}
+
+.celebrity .title {
+  font-size: 24px;
+  font-family: 'rubikmedium';
+  font-weight: 200
+}
+
+.celebrity .title a {
+  color: #fff;
+}
+
+.celebrity .date {
+  font-size: 13px;
+  color: #f1f1f1;
+  margin: 15px 0px;
+  display: block;
+}
+
+.celebrity .img2 {
+  overflow: hidden;
+}
+
+.celebrity .title2 {
+  font-size: 16px;
+  font-family: 'rubikmedium';
+  font-weight: 200
+}
+
+.celebrity .title2 a {
+  color: #0a0a0a;
+}
+
+.celebrity .title2 a:hover {
+  color: #357006;
+}
+
+.homevideo {
+  background: #f8f8f8;
+  padding: 20px 0;
+}
+
+.homevideo .start {
+  background: #fff;
+  margin-bottom: 10px;
+}
+
+.homevideo figure {
+  margin: 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  height: 130px;
+  cursor: pointer;
+}
+
+.homevideo figure:before {
+  background: rgba(0, 0, 0, .5);
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  left: 0;
+}
+
+.homevideo figure span {
+  position: relative;
+  z-index: 999;
+  color: #f75454;
+  font-size: 24px;
+  font-family: 'rubikmedium';
+  display: block;
+  text-align: center;
+}
+
+.homevideo i {
+  margin-top: 40px;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.homevideo .title {
+  font-size: 16px;
+  font-family: 'rubikmedium';
+  margin: 10px 10px 0 0;
+  font-weight: 200
+}
+
+.homevideo .title a {
+  color: #000;
+}
+
+.homevideo .date {
+  font-size: 12px;
+  color: #999;
+}
+
+.homevideo .videolink {
+  text-align: center;
+  padding-top: 15px;
+}
+
+.homevideo .videolink a {
+  color: #fff;
+  background: #333;
+  padding: 10px 30px;
+  display: inline-block;
+  border-radius: 30px;
+}
+
+.homevideo .videolink a:hover {
+  background: #3e4095;
+  color: #fff;
+}
+
+.viewall {
+  text-align: center;
+  padding-top: 15px;
+}
+
+.viewall a {
+  color: #fff;
+  background: #333;
+  padding: 10px 30px;
+  display: inline-block;
+  border-radius: 30px;
+}
+
+.viewall a:hover {
+  background: #3e4095;
+  color: #fff;
+}
+
+#toTop {
+  white-space: nowrap;
+  right: 35px;
+  bottom: 60px;
+  position: fixed;
+  width: 40px;
+  z-index: 100;
+  overflow: visible;
+  transform: rotate(90deg) translate(100%, 0);
+  transform-origin: top right;
+  display: flex;
+  justify-content: flex-end;
+  cursor: pointer;
+}
+
+footer {
+  background: #f8f8f8;
+  padding: 30px 0 0;
+  color: #333;
+}
+
+footer h4 {
+  font-family: 'rubikmedium';
+  font-weight: 400;
+  color: #444;
+  margin: 0;
+  padding-bottom: 10px;
+  font-size: 18px;
+}
+
+footer p {
+  color: #333;
+  font-size: 15px;
+  line-height: 24px;
+}
+
+footer p strong {
+  display: block;
+  color: #539ccd;
+}
+
+footer a {
+  color: #e7e7e7;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+footer .copy {
+  border-top: 1px solid #fff;
+  padding: 10px;
+  text-align: left;
+  font-size: 14px;
+}
+
+footer .copy a {
+  color: #555;
+  display: inline-block;
+  margin: 0px 5px;
+  position: relative;
+}
+
+footer .copy a {
+  color: #333;
+}
+
+footer .copy a:before {
+  position: absolute;
+  right: -7px;
+  background: #555;
+  height: 12px;
+  content: "";
+  width: 1px;
+  top: 6px;
+}
+
+footer .copy a:last-child:before {
+  display: none;
+}
+
+.pagedetails {
+  padding: 20px 0;
+}
+
+.pagedetails h1 {
+  font-size: 28px;
+  margin: 0 0 10px;
+  padding: 0;
+  font-weight: 600;
+}
+
+.pagedetails .date {
+  font-size: 13px;
+  color: #888;
+  padding: 0 0 10px;
+  display: block;
+}
+
+.pagedetails .detailsimg {
+  margin-bottom: 10px;
+}
+
+.pagedetails ul.share {
+  margin: 0px;
+}
+
+.pagedetails ul.share li {
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.popular-posts {
+  margin-bottom: 20px;
+}
+
+.popular-posts .start {
+  margin-bottom: 20px;
+}
+
+.popular-posts .title {
+  font-size: 14px;
+  font-weight: 600;
+  padding-left: 10px;
+}
+
+.popular-posts .title a {
+  color: #000;
+}
+
+.popular-posts .title a:hover {
+  color: #f75454;
+}
+
+.popular-posts h3 {
+  font-size: 18px;
+  font-family: 'rubiklight';
+  font-weight: 600;
+  margin-bottom: 10px
+}
+
+.popular-posts .date {
+  padding: 5px 0 0 10px;
+  font-size: 13px;
+}
+
+.listing {
+  padding: 20px 0;
+}
+
+.listing .start {
+  margin-bottom: 15px;
+}
+
+.listing h1 {
+  font-size: 28px;
+  margin: 10px 0 10px;
+  padding: 0;
+  font-weight: 600;
+}
+
+.listing ul.nav-tabs {
+  margin-bottom: 15px;
+}
+
+.listing ul.nav-tabs li a {
+  display: block;
+  padding: 4px 15px;
+  background: #f8f8f8;
+  font-weight: 600;
+  color: #000;
+}
+
+.listing ul.nav-tabs li {
+  padding-right: 2px;
+}
+
+.listing ul.nav-tabs li a.active {
+  background: #3e4095;
+  color: #fff;
+}
+
+.listing .title {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.listing .title h2 {
+  font-size: 20px;
+}
+
+.listing h3.newslisttitle {
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+.listing .title a {
+  color: #000;
+}
+
+.listing .title a:hover {
+  color: #f75454;
+}
+
+.listing .date {
+  padding: 2px 0 10px;
+  font-size: 13px;
+  color: #888;
+  display: block;
+}
+
+.listing a.more {
+  background: #333;
+  padding: 7px 15px;
+  color: #fff;
+}
+
+.listing a.more:hover {
+  background: #08c;
+  color: #fff;
+  text-decoration: none;
+}
+
+.listing .listimg {
+  background-size: cover !important;
+  height: 200px;
+  background-repeat: no-repeat !important;
+  overflow: hidden;
+  margin-top: 10px
+}
+
+.fontbold {
+  font-weight: 600;
+  margin: 0;
+  padding: 0;
+}
+
+.breadcrum {
+  clear: both;
+  padding: 15px 0 10px;
+}
+
+.breadcrum ul {
+  clear: both;
+}
+
+.breadcrum ul li {
+  list-style-type: none;
+  display: inline-block;
+  padding: 5px 10px;
+  position: relative;
+  background: #f5f5f5;
+  border-radius: 4px;
+  font-size: 13px;
+}
+
+.breadcrum a {
+  color: #333;
+}
+
+
+.newsletter {
+  padding-bottom: 15px;
+}
+
+.newsletter form {
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.newsletter form input {
+  border-radius: 0;
+  height: 40px;
+  width: 100%;
+}
+
+.newsletter form button {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 40px;
+  border: none;
+  background: #000;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 600;
+  border-radius: 0;
+  text-shadow: none
+}
+
+.newsletter img {
+  width: 32px;
+}
+
+
+@media screen and (max-width:767px) {
+  #menu {
+    height: 30px;
+  }
+}
+
+.president {
+  text-align: justify;
+}
+
+.president .leftimg {
+  float: left;
+  padding: 10px;
+  box-shadow: 0 0 3px #ccc;
+  border-radius: 6px;
+  margin: 0 15px 10px 0;
+}
+
+.president h3 {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* Style for the slider container */
+.owl-carousel {
+  overflow: hidden;
+  /* Hide overflow content */
+  white-space: nowrap;
+  /* Prevent line breaks */
+}
+
+.owl-carousel .owl-stage {
+  display: flex;
+  /* Flexbox to align the items horizontally */
+  animation: scroll-left 30s linear infinite;
+  /* Apply the continuous scroll */
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(100%);
+    /* Start from the right edge */
+  }
+
+  100% {
+    transform: translateX(-100%);
+    /* End at the left edge */
+  }
+}
+
+/* Optional: You can also style the individual items */
+.owl-carousel .item {
+  flex: 0 0 auto;
+  /* Prevent items from shrinking or stretching */
+  width: 25%;
+  /* Adjust width as necessary */
+  margin-right: 20px;
+  /* Optional margin */
+}

@@ -9,9 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "mysql2": "^3.12.0",
+    "next": "^15.1.6",
+    "owl.carousel": "^2.3.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "next": "15.1.6"
+    "slugify": "^1.6.6"
   },
   "devDependencies": {
     "postcss": "^8",
