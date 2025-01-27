@@ -1,28 +1,30 @@
-"use client";
+"use client"; // Ensures this component is client-side only
 
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 
 export default function PsuNewsCategoryPage() {
-  const { slug } = useParams();
-  const [newsData, setNewsData] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const { slug } = useParams(); // Get the category slug from the URL
+  const [newsData, setNewsData] = useState([]); // Holds the fetched news data
+  const [loading, setLoading] = useState(true); // Loading state
+  const [error, setError] = useState(null); // Error handling state
 
+  // Helper function to format the URL title
   const formatUrlTitle = (title) => {
     return title
       ? title
-        .replace(/\s{3}/g, "---") // Replace three spaces with "---"
-        .replace(/\s{2}/g, "--")  // Replace two spaces with "--"
-        .replace(/\s+/g, "-")     // Replace single or multiple spaces with "-"
+          .replace(/\s{3}/g, "---") // Replace three spaces with "---"
+          .replace(/\s{2}/g, "--")  // Replace two spaces with "--"
+          .replace(/\s+/g, "-")     // Replace single or multiple spaces with "-"
       : "";
   };
 
   useEffect(() => {
-    if (!slug) return;
+    if (!slug) return; // If no slug is provided, do nothing
 
     const fetchNews = async () => {
       try {
+        // Format the slug to match the API URL structure
         const formattedSlug = slug
           .replace(/\s{3}/g, "---")
           .replace(/\s{2}/g, "--")
@@ -30,11 +32,15 @@ export default function PsuNewsCategoryPage() {
 
         const response = await fetch(`/api/getData?type=news&category=${formattedSlug}`);
 
+        // Check if the response is successful
         if (!response.ok) {
           throw new Error(`Failed to fetch news: ${response.statusText}`);
         }
 
+        // Parse the JSON response
         const data = await response.json();
+
+        // Handle the case where no news data is returned
         if (!data || data.length === 0) {
           setError("No news found for this category.");
         } else {
@@ -43,23 +49,31 @@ export default function PsuNewsCategoryPage() {
       } catch (error) {
         setError(`Error fetching news data: ${error.message}`);
       } finally {
-        setLoading(false);
+        setLoading(false); // Set loading to false once the data is fetched
       }
     };
 
-    fetchNews();
-  }, [slug]);
-
+    fetchNews(); // Call the function to fetch news
+  }, [slug]); // Re-run the effect whenever the slug changes
 
   if (loading) {
-    return <div>Loading...</div>;
+    // Display a loading spinner while the data is being fetched
+    return (
+      <div className="loading-overlay">
+        <div className="loading-content">
+          <img src="/images/logo.jpg" alt="Logo" className="loading-logo" />
+          <div className="loading-circle"></div>
+        </div>
+      </div>
+    );
   }
 
   if (error) {
+    // Display error message if something went wrong
     return <div>{error}</div>;
   }
 
-  const BASE_IMAGE_URL = "https://www.psuexpress.com/sdsdsd/";
+  const BASE_IMAGE_URL = "https://www.psuexpress.com/sdsdsd/"; // Base URL for images
 
   return (
     <section className="listing">
@@ -67,13 +81,14 @@ export default function PsuNewsCategoryPage() {
         <div className="breadcrum">
           <ul>
             <li><a href="/">Home</a></li> ›
-            <li><a href={`${slug}`}>{slug}</a></li>
+            <li><a href={`/${slug}`}>{slug}</a></li>
           </ul>
           <h1>{slug}</h1>
         </div>
         <div className="row">
           <div className="col-md-9 col-sm-8">
             {newsData.length > 0 ? (
+              // Render the latest 10 news items in reverse order
               newsData.slice(-10).reverse().map((item) => (
                 <div className="start" key={item.id || item.urltitle}>
                   <div className="row">

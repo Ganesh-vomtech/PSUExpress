@@ -813,6 +813,7 @@ footer .copy a:last-child:before {
   }
 }
 
+
 .president {
   text-align: justify;
 }
@@ -830,39 +831,265 @@ footer .copy a:last-child:before {
   font-weight: 600;
 }
 
-/* Style for the slider container */
-.owl-carousel {
+
+
+/*footer
+/* Footer Styles */
+.footer {
+  background: #0a0a0a;
+  color: #fff;
+  padding: 30px 0; /* Reduced padding for more compact footer */
+  font-family: 'Roboto', sans-serif;
+  position: relative;
   overflow: hidden;
-  /* Hide overflow content */
-  white-space: nowrap;
-  /* Prevent line breaks */
 }
 
-.owl-carousel .owl-stage {
-  display: flex;
-  /* Flexbox to align the items horizontally */
-  animation: scroll-left 30s linear infinite;
-  /* Apply the continuous scroll */
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(45, 212, 255, 0.5), rgba(255, 45, 85, 0.5));
+  z-index: -1;
+  animation: gradientAnimation 5s ease infinite;
 }
 
-@keyframes scroll-left {
+@keyframes gradientAnimation {
   0% {
-    transform: translateX(100%);
-    /* Start from the right edge */
+    background: linear-gradient(135deg, rgba(45, 212, 255, 0.5), rgba(255, 45, 85, 0.5));
   }
-
+  50% {
+    background: linear-gradient(135deg, rgba(255, 45, 85, 0.5), rgba(45, 212, 255, 0.5));
+  }
   100% {
-    transform: translateX(-100%);
-    /* End at the left edge */
+    background: linear-gradient(135deg, rgba(45, 212, 255, 0.5), rgba(255, 45, 85, 0.5));
   }
 }
 
-/* Optional: You can also style the individual items */
-.owl-carousel .item {
-  flex: 0 0 auto;
-  /* Prevent items from shrinking or stretching */
-  width: 25%;
-  /* Adjust width as necessary */
-  margin-right: 20px;
-  /* Optional margin */
+.footer .container {
+  max-width: 1200px;
+  margin: 0 auto;
 }
+
+.footer .footer-section {
+  margin-bottom: 15px; /* Reduced margin for compactness */
+}
+
+.footer .footer-heading {
+  font-size: 18px; /* Reduced font size */
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 10px; /* Reduced margin */
+  text-transform: uppercase;
+  letter-spacing: 1px; /* Reduced letter spacing */
+}
+
+.footer .footer-heading::after {
+  content: '';
+  position: absolute;
+  width: 50%;
+  height: 2px;
+  background-color: #ff6f61;
+  bottom: 0;
+  left: 25%;
+}
+
+.footer .useful-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer .useful-links li {
+  margin-bottom: 6px; /* Reduced space between links */
+}
+
+.footer .useful-links li a {
+  color: #ddd;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.footer .useful-links li a:hover {
+  color: #fff;
+  transform: translateX(5px);
+}
+
+.footer .newsletter {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 12px; /* Reduced padding */
+  border-radius: 8px;
+  backdrop-filter: blur(5px);
+  transition: background 0.3s ease;
+}
+
+.footer .newsletter:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.footer .newsletter p {
+  font-size: 13px; /* Smaller font size */
+  margin-bottom: 8px; /* Reduced margin */
+  color: #fff;
+}
+
+.footer .form-control {
+  width: 100%;
+  padding: 8px 12px; /* Reduced padding */
+  margin-bottom: 8px; /* Reduced margin */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #222;
+  color: #fff;
+  font-size: 14px;
+  transition: background 0.3s ease;
+}
+
+.footer .form-control:focus {
+  background-color: #333;
+  outline: none;
+}
+
+.footer .btn {
+  background-color: #ff6f61;
+  color: white;
+  padding: 8px 18px; /* Reduced padding */
+  border: none;
+  border-radius: 5px;
+  font-size: 14px; /* Smaller font size */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s;
+}
+
+.footer .btn:hover {
+  background-color: #f06543;
+  transform: scale(1.05);
+}
+
+.footer .social-links a {
+  margin-right: 12px; /* Reduced space between icons */
+  display: inline-block;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.footer .social-links a:hover {
+  transform: scale(1.1);
+  opacity: 0.9;
+}
+
+.footer .social-icon img {
+  width: 30px; /* Smaller icons */
+  height: 30px;
+  transition: transform 0.3s ease;
+}
+
+.footer .social-icon img:hover {
+  transform: rotate(360deg);
+}
+
+.footer .copy {
+  background-color: #111;
+  color: #bbb;
+  padding: 12px 0; /* Reduced padding */
+  margin-top: 20px; /* Reduced margin */
+  text-align: center;
+  border-top: 1px solid #333;
+}
+
+.footer .copy p {
+  margin-bottom: 0;
+  font-size: 14px; /* Smaller font size for the copyright */
+}
+
+.footer .copy .row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+}
+
+.footer .copy .text-right a {
+  color: #ff6f61;
+  margin-left: 12px; /* Reduced margin */
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s;
+}
+
+.footer .copy .text-right a:hover {
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .footer .container {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .footer .footer-heading {
+    font-size: 16px; /* Reduced heading size for smaller screens */
+  }
+
+  .footer .social-links a {
+    margin-right: 8px; /* Smaller margin on mobile */
+  }
+
+  .footer .form-control,
+  .footer .btn {
+    font-size: 13px; /* Smaller font size */
+  }
+
+  .footer .copy .row {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+
+
+/*loading screen
+/* Loading screen styles */
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.8); /* Dark white overlay */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  backdrop-filter: blur(15px); /* Stronger blur */
+}
+
+.loading-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.loading-logo {
+  width: 250px; /* Increased logo size */
+  height: 250px; /* Increased logo size */
+  margin-bottom: 20px;
+  object-fit: contain;
+}
+
+.loading-circle {
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid #3498db;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+

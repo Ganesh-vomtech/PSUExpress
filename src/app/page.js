@@ -1,10 +1,12 @@
-"use client";
+"use client"; // Ensures this component is client-side only
+
 import { useEffect, useState } from "react";
 
 export default function Home() {
-  const [NewsData, setNewsData] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [newsData, setNewsData] = useState([]); // Holds the news data
+  const [loading, setLoading] = useState(true); // Loading state
 
+  // Categories configuration
   const categories = [
     { key: "new-faces-in-psus", title: "पीएसयू समाचार", link: "psu-news.html" },
     { key: "prime-minister-of-india-news", title: "भारत के प्रधानमंत्री", link: "#" },
@@ -16,76 +18,52 @@ export default function Home() {
 
   const BASE_IMAGE_URL = "https://www.psuexpress.com/sdsdsd/";
 
+  // Fetch news data on component mount
   useEffect(() => {
     const fetchNewsData = async () => {
       try {
-        const response = await fetch("/api/getData?type=news");
+        const response = await fetch("/api/getData?type=news&limit=100"); // Fetch a limited number of records
         const data = await response.json();
         setNewsData(data);
       } catch (error) {
-        console.error("Error fetching blogs data:", error);
+        console.error("Error fetching news data:", error);
       } finally {
-        setLoading(false);
+        setLoading(false); // Set loading to false once the data is fetched
       }
     };
+
     fetchNewsData();
-    document.title = "Blogs";
+    document.title = "Blogs"; // Set the page title
   }, []);
 
+  // Function to get the last three articles by category
   const getLastThreeByCategory = (categoryKey) => {
-    return NewsData.filter((item) => item.categoryname === categoryKey)
+    return newsData
+      .filter((item) => item.categoryname === categoryKey)
       .slice(-4)
-      .reverse();
+      .reverse(); // Get the last three articles, reverse order
   };
 
-  const getBreakingNews = () => {
-    return NewsData.slice(0, 4);
-  };
-
+  // Function to format URL title
   const formatUrl = (urltitle) => urltitle.replace(/ /g, "-");
 
   return (
     <div>
-      {loading ? (
-        <div className="loader">
-          <div className="loader-box-1" />
-          <div className="loader-box-2" />
+      {/* Page loading animation */}
+      {loading && (
+        <div className="loading-overlay">
+          <div className="loading-content">
+            {/* Logo during loading */}
+            <img src="/images/logo.jpg" alt="Logo" className="loading-logo" />
+            {/* Circular Loading animation */}
+            <div className="loading-circle"></div>
+          </div>
         </div>
-      ) : (
-        <>
-          {/* Breaking News Section */}
-          {/* <section className="sildetab">
-            <div className="container">
-              <div className="owl-carousel slide1 owl-theme">
-                {getBreakingNews().map((item) => (
-                  <div className="item" key={item.id || item.urltitle}>
-                    <div className="start">
-                      <div className="img-thumb">
-                        <a href={`/${formatUrl(item.urltitle)}`} title={item.title}>
-                          <div
-                            className="img"
-                            style={{
-                              backgroundImage: `url("${item.image ? `${BASE_IMAGE_URL}${item.image}` : "/images/placeholder.jpg"}")`,
-                              backgroundSize: "cover",
-                              backgroundPosition: "center",
-                            }}
-                          />
-                        </a>
-                      </div>
-                      <div className="title">
-                        <a href={`details/${formatUrl(item.urltitle)}`} title={item.title}>
-                          <h2>{item.title}</h2>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </section>  */}
+      )}
 
-
-
+      {/* Main Content (Visible only after loading is complete) */}
+      {!loading && (
+        <div>
           {/* Categories Sections */}
           {categories.map((category) => {
             const categoryData = getLastThreeByCategory(category.key);
@@ -133,7 +111,7 @@ export default function Home() {
               </section>
             );
           })}
-        </>
+        </div>
       )}
     </div>
   );

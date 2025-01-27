@@ -55,9 +55,7 @@ const Header = () => {
         <div className="container">
           <nav>
             <button
-              className={`cmn-toggle-switch open_close ${
-                menuOpen ? "active" : ""
-              }`}
+              className={`cmn-toggle-switch open_close ${menuOpen ? "active" : ""}`}
               onClick={toggleMenu}
             >
               <span>Menu mobile</span>
@@ -70,7 +68,7 @@ const Header = () => {
                 {categories.map((category) => (
                   <li key={category.slug}>
                     {category.subcategories && category.name === "More" ? (
-                      <span>{category.name}</span> // Make "More" not clickable
+                      <span>{category.name}</span>
                     ) : (
                       <Link href={`/${category.slug}`}>{category.name}</Link>
                     )}
@@ -97,6 +95,7 @@ const Header = () => {
 };
 
 export default Header;
+
 
 
 

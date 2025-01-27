@@ -1,4 +1,4 @@
-"use client";
+"use client"; // This will ensure this component is client-side only
 
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation"; // useParams for dynamic routes
@@ -36,28 +36,30 @@ const formatDateToIST = (dateString) => {
   }
 };
 
-
 export default function DetailsPage() {
   const { category, urltitle } = useParams(); // Get category and urltitle from params
+  const [newsData, setNewsData] = useState(null);
+  const [relatedNews, setRelatedNews] = useState([]);
+  const [loading, setLoading] = useState(true); // Add loading state
 
   if (!urltitle) {
     console.error("URL Title is missing.");
     return <div>Invalid URL</div>;
   }
 
-  const [newsData, setNewsData] = useState(null);
-  const [relatedNews, setRelatedNews] = useState([]);
-  const [loading, setLoading] = useState(true);
-
+  // Use useEffect to fetch data on the client side
   useEffect(() => {
     const fetchDetails = async () => {
       try {
+        // Decode and convert urltitle to lowercase
         const decodedUrlTitle = decodeURIComponent(urltitle)
           .replace(/---/g, "   ")
           .replace(/--/g, "  ")
-          .replace(/-/g, " ");
+          .replace(/-/g, " ")
+          .toLowerCase(); // Convert to lowercase
+          console.log(decodedUrlTitle);
         const encodedUrlTitle = encodeURIComponent(decodedUrlTitle);
-
+     
         let url = `/api/getData?type=news&urltitle=${encodedUrlTitle}`;
         if (category) {
           const encodedCategory = encodeURIComponent(category);
@@ -70,12 +72,12 @@ export default function DetailsPage() {
         if (Array.isArray(data) && data.length > 0) {
           setNewsData(data[0]);
         } else {
-          setNewsData({});
+          setNewsData({}); // No data found
         }
       } catch (error) {
         console.error("Error fetching data:", error);
       } finally {
-        setLoading(false);
+        setLoading(false); // Set loading to false when data is fetched
       }
     };
 
@@ -103,8 +105,22 @@ export default function DetailsPage() {
     fetchRelatedNews();
   }, [newsData?.categoryname]);
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) {
+    return (
+      <div className="loading-overlay">
+        <div className="loading-content">
+          <img
+            src="/images/logo.jpg"
+            alt="Logo"
+            className="loading-logo"
+          />
+          <div className="loading-circle"></div>
+        </div>
+      </div>
+    );
+  }
 
+  // Handle no data found case
   if (!newsData || Object.keys(newsData).length === 0) {
     return <div>No data found for this news.</div>;
   }
@@ -118,9 +134,7 @@ export default function DetailsPage() {
               <Link href="/">होम पेज</Link> ›
             </li>
             <li>
-
               <Link href={`/${newsData.categoryname}`}>{newsData.categoryname}</Link>
-
             </li>
           </ul>
         </div>
