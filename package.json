@@ -14,7 +14,8 @@
     "owl.carousel": "^2.3.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "slugify": "^1.6.6"
+    "slugify": "^1.6.6",
+    "swr": "^2.3.0"
   },
   "devDependencies": {
     "postcss": "^8",

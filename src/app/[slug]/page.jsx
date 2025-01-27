@@ -10,7 +10,12 @@ export default function PsuNewsCategoryPage() {
   const [error, setError] = useState(null);
 
   const formatUrlTitle = (title) => {
-    return title ? title.replace(/\s+/g, "-") : "";
+    return title
+      ? title
+        .replace(/\s{3}/g, "---") // Replace three spaces with "---"
+        .replace(/\s{2}/g, "--")  // Replace two spaces with "--"
+        .replace(/\s+/g, "-")     // Replace single or multiple spaces with "-"
+      : "";
   };
 
   useEffect(() => {
@@ -18,10 +23,12 @@ export default function PsuNewsCategoryPage() {
 
     const fetchNews = async () => {
       try {
-        const formattedSlug = slug.replace(/\s+/g, "-");
-        const response = await fetch(
-          `/api/getData?type=news&category=${formattedSlug}`
-        );
+        const formattedSlug = slug
+          .replace(/\s{3}/g, "---")
+          .replace(/\s{2}/g, "--")
+          .replace(/\s+/g, "-");
+
+        const response = await fetch(`/api/getData?type=news&category=${formattedSlug}`);
 
         if (!response.ok) {
           throw new Error(`Failed to fetch news: ${response.statusText}`);
@@ -43,6 +50,7 @@ export default function PsuNewsCategoryPage() {
     fetchNews();
   }, [slug]);
 
+
   if (loading) {
     return <div>Loading...</div>;
   }
@@ -58,16 +66,10 @@ export default function PsuNewsCategoryPage() {
       <div className="container">
         <div className="breadcrum">
           <ul>
-            <li>
-              <a href="/">Home</a>
-            </li>
-            ›
-            <li>
-              <a href={`${slug}`}>    {/* Category: */} {slug}</a>
-            </li>
+            <li><a href="/">Home</a></li> ›
+            <li><a href={`${slug}`}>{slug}</a></li>
           </ul>
-          {/* Category: */}
-          <h1>Category: {slug}</h1>
+          <h1>{slug}</h1>
         </div>
         <div className="row">
           <div className="col-md-9 col-sm-8">
@@ -76,13 +78,11 @@ export default function PsuNewsCategoryPage() {
                 <div className="start" key={item.id || item.urltitle}>
                   <div className="row">
                     <div className="col-sm-4">
-                      <a href={`/details/${formatUrlTitle(item.urltitle)}`}>
+                      <a href={`/${item.categoryname}/${formatUrlTitle(item.urltitle)}`}>
                         <div
                           className="listimg"
                           style={{
-                            backgroundImage: `url("${item.image
-                              ? `${BASE_IMAGE_URL}${item.image}`
-                              : "/images/placeholder.jpg"}")`,
+                            backgroundImage: `url("${item.image ? `${BASE_IMAGE_URL}${item.image}` : "/images/placeholder.jpg"}")`,
                             backgroundSize: "cover",
                             backgroundPosition: "center",
                           }}
@@ -91,27 +91,17 @@ export default function PsuNewsCategoryPage() {
                     </div>
                     <div className="col-sm-8">
                       <div className="title">
-                        <a
-                          href={`/details/${formatUrlTitle(item.urltitle)}`}
-                          title={item.title}
-                        >
+                        <a href={`/${item.categoryname}/${formatUrlTitle(item.urltitle)}`} title={item.title}>
                           <h2>{item.title}</h2>
                         </a>
                       </div>
-
-
-
                       <h3
                         className="newslisttitle"
                         dangerouslySetInnerHTML={{
-                          __html: item.short_desc || "No content",
+                          __html: item.short_desc || " ",
                         }}
                       ></h3>
-
-                      <a
-                        href={`/details/${formatUrlTitle(item.urltitle)}`}
-                        className="more"
-                      >
+                      <a href={`/${item.categoryname}/${formatUrlTitle(item.urltitle)}`} className="more">
                         Read More
                       </a>
                     </div>
@@ -125,6 +115,6 @@ export default function PsuNewsCategoryPage() {
           <div className="col-md-3 col-sm-4">Space For Ads</div>
         </div>
       </div>
-    </section >
+    </section>
   );
 }

@@ -82,7 +82,9 @@ export default function Home() {
                 ))}
               </div>
             </div>
-          </section> */}
+          </section>  */}
+
+
 
           {/* Categories Sections */}
           {categories.map((category) => {
@@ -116,7 +118,7 @@ export default function Home() {
                               </a>
                             </div>
                             <div className="title">
-                              <a href={`/details/${formatUrl(item.urltitle)}`} title={item.title}>
+                              <a href={`/${item.categoryname}/${formatUrl(item.urltitle)}`} title={item.title}>
                                 <h2>{item.title}</h2>
                               </a>
                             </div>
