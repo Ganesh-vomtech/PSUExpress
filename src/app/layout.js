@@ -13,6 +13,7 @@ export default function RootLayout({ children }) {
           <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
           <link rel="alternate" href="index.html" hrefLang="hi-in" />
           <link rel="canonical" href="index.html" /> */}
+
         <link href="/css/styles.css" rel="stylesheet" />
         <link href="/css/bootstrap.min.css" rel="stylesheet" />
         <link href="/css/font-awesome.min.css" rel="stylesheet" />
@@ -23,7 +24,7 @@ export default function RootLayout({ children }) {
         =
 
         {/* Scripts */}
-
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
         <script src="/js/jquery.min.js" type="text/javascript" />
         <script src="/js/popper.min.js" type="text/javascript" />
         <script src="/js/bootstrap.min.js" type="application/javascript" />
